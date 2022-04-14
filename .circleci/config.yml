@@ -1,0 +1,66 @@
+# Specify CircleCI version.
+version: 2.1
+
+# Invoke the react-native orb.
+orbs:
+  rn: react-native-community/react-native@5.1.0
+
+# Define runnable jobs.
+jobs:
+  # Check out source code and persist root.
+  checkout_code:
+    executor: rn/linux_js
+    steps:
+      - checkout
+      - persist_to_workspace:
+          paths: .
+          root: .
+  lint_code:
+    executor: rn/linux_js
+    steps:
+      - attach_workspace:
+          at: .
+      - rn/yarn_install
+      - run:
+          command: yarn lint
+          name: Run ESLint (`yarn lint`)
+  # Run linter, type-checker, and tests.
+  analyze_code:
+    executor: rn/linux_js
+    steps:
+      - attach_workspace:
+          at: .
+      - rn/yarn_install
+      - run:
+          command: yarn lint
+          name: Run ESLint (`yarn lint`)
+      - run:
+          command: yarn type
+          name: Run TSC (`yarn type`)
+      - run:
+          command: yarn test
+          name: Run Jest (`yarn test`)
+
+# Define workflows.
+workflows:
+  # Simple workflow for just linting
+  linter:
+    jobs:
+      - checkout_code
+      - lint_code:
+          requires:
+            - checkout_code
+  # test:
+  #   jobs:
+  #     - checkout_code
+  #     - lint_code:
+  #         requires:
+  #           - checkout_code
+  #     - rn/ios_build:
+  #         name: build_ios_release
+  #         project_path: ios/Frontend.xcodeproj
+  #         device: 'iPhone 11'
+  #         build_configuration: Debug
+  #         scheme: Frontend
+  #         requires:
+  #           - analyze_code

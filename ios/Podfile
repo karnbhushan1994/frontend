@@ -1,0 +1,42 @@
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+pod 'React-RCTText', :path => '../node_modules/react-native/Libraries/Text', :modular_headers => true
+
+platform :ios, '11.0'
+
+target 'Frontend' do
+  config = use_native_modules!
+  use_react_native!(:path => config["reactNativePath"])
+
+  pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  pod 'Permission-Contacts', :path => "#{permissions_path}/Contacts"
+  pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  target 'FrontendTests' do
+    inherit! :complete
+    # Pods for testing
+  end
+
+  # An issue in flipper-folly podspec caused failure in building. 
+  # Using an older version of flipper folly for that purpose.
+  # https://github.com/facebook/react-native/issues/30836
+  use_flipper!({ 'Flipper-Folly' => '2.5.3', 'Flipper' => '0.87.0', 'Flipper-RSocket' => '1.3.1' })
+  post_install do |installer|
+    flipper_post_install(installer)
+  end
+end
+
+target 'Frontend-tvOS' do
+  # Pods for RNTodo-tvOS
+
+  target 'Frontend-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+end
+
+# add the Firebase pod for Google Analytics
+pod 'Firebase/Analytics'
+# add pods for any other desired Firebase products
+# https://firebase.google.com/docs/ios/setup#available-pods

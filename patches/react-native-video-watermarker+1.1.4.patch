@@ -1,0 +1,57 @@
+diff --git a/node_modules/react-native-video-watermarker/ios/MyFunctions.h b/node_modules/react-native-video-watermarker/ios/MyFunctions.h
+index e626c82..9dc2319 100644
+--- a/node_modules/react-native-video-watermarker/ios/MyFunctions.h
++++ b/node_modules/react-native-video-watermarker/ios/MyFunctions.h
+@@ -22,6 +22,7 @@
+     else if([positionString isEqualToString:@"LEFT_BOTTOM"]) return 2;
+     else if([positionString isEqualToString:@"RIGHT_TOP" ]) return 3;
+     else if([positionString isEqualToString:@"RIGHT_BOTTOM" ]) return 4;
++    else if([positionString isEqualToString:@"CUSTOM" ]) return 5;
+     else return 1;
+ }
+ 
+diff --git a/node_modules/react-native-video-watermarker/ios/VideoWatermark.m b/node_modules/react-native-video-watermarker/ios/VideoWatermark.m
+index 3f4dc89..8fff75d 100644
+--- a/node_modules/react-native-video-watermarker/ios/VideoWatermark.m
++++ b/node_modules/react-native-video-watermarker/ios/VideoWatermark.m
+@@ -8,15 +8,16 @@
+ 
+ RCT_EXPORT_MODULE()
+ 
+-RCT_EXPORT_METHOD(convert:(NSString *)videoUri imageUri:(nonnull NSString *)imageUri watermarkPosition:(nonnull NSString *)watermarkPosition callback:(RCTResponseSenderBlock)callback)
++RCT_EXPORT_METHOD(convert:(NSString *)videoUri imageUri:(nonnull NSString *)imageUri watermarkPosition:(nonnull NSString *)watermarkPosition watermarkWidth:(int)watermarkWidth watermarkHeight:(int)watermarkHeight callback:(RCTResponseSenderBlock)callback)
+ {
+     RCTLogInfo(@"Checking passed variables %@ %@ %@", videoUri, imageUri, watermarkPosition);
+-    [self watermarkVideoWithImage:videoUri imageUri:imageUri watermarkPosition:watermarkPosition callback:callback];
++    [self watermarkVideoWithImage:videoUri imageUri:imageUri watermarkPosition:watermarkPosition watermarkWidth:watermarkWidth watermarkHeight:watermarkHeight callback:callback];
+ }
+ 
+--(void)watermarkVideoWithImage:(NSString *)videoUri imageUri:(NSString *)imageUri watermarkPosition:(NSString *)watermarkPosition callback:(RCTResponseSenderBlock)callback
++-(void)watermarkVideoWithImage:(NSString *)videoUri imageUri:(NSString *)imageUri watermarkPosition:(NSString *)watermarkPosition watermarkWidth:(int)watermarkWidth watermarkHeight:(int)watermarkHeight callback:(RCTResponseSenderBlock)callback
+ {
+ 
++    
+     AVURLAsset* videoAsset = [[AVURLAsset alloc]initWithURL:[NSURL fileURLWithPath:videoUri] options:nil];
+     AVMutableComposition* mixComposition = [AVMutableComposition composition];
+     
+@@ -39,6 +40,8 @@ RCT_EXPORT_METHOD(convert:(NSString *)videoUri imageUri:(nonnull NSString *)imag
+     
+     UIGraphicsBeginImageContext(sizeOfVideo);
+ 
++    int paddingWidth = sizeOfVideo.width * 0.05;
++    int paddingHeight = sizeOfVideo.height * 0.05;
+ 
+     int watermarkPositionInt = [MyFunctions getWatermarkInt:watermarkPosition];
+     switch(watermarkPositionInt) {
+@@ -58,6 +61,11 @@ RCT_EXPORT_METHOD(convert:(NSString *)videoUri imageUri:(nonnull NSString *)imag
+             [myImage drawInRect:CGRectMake(sizeOfVideo.width -300, sizeOfVideo.height - 300, 300, 300)];
+             break;     
+ 
++        case 5:
++            // hardcoded scaling for an unknown watermark scaling issue
++            [myImage drawInRect:CGRectMake(paddingWidth, paddingHeight, (watermarkWidth * 0.88) + paddingWidth, (watermarkHeight * (0.88 - 0.18)) + paddingHeight)];
++            break;     
++            
+         default:
+             [myImage drawInRect:CGRectMake(0, 0, 300, 300)];
+             break;

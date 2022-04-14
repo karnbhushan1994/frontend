@@ -1,0 +1,361 @@
+import {ImageSourcePropType} from 'react-native';
+import {BadgeDataType, BadgeOptions} from '../../types';
+
+export const BADGE_LIMIT = 3;
+
+export const BadgeNamesRecord: Record<BadgeOptions, string> = {
+  art: 'Art',
+  astronomy: 'Astronomy',
+  author: 'Author',
+  athlete: 'Athlete',
+  beauty: 'Beauty',
+  blogger: 'Blogger',
+  cars: 'Cars',
+  chess: 'Chess',
+  coffee: 'Coffee',
+  college: 'College',
+  cooking: 'Cooking',
+  dance: 'Dance',
+  diy: 'DIY',
+  dj: 'DJ',
+  design: 'Design',
+  engineering: 'Engineering',
+  entertainment: 'Entertainment',
+  entrepreneur: 'Entrepreneur',
+  fashion: 'Fashion',
+  film: 'Film',
+  finance: 'Finance',
+  fishing: 'Fishing',
+  fitness: 'Fitness',
+  food: 'Food',
+  foreign_language: 'Foreign Language',
+  gaming: 'Gaming',
+  gardening: 'Gardening',
+  health: 'Health',
+  investing: 'Investing',
+  jewelry: 'Jewelry',
+  journalism: 'Journalism',
+  legal: 'Legal',
+  marketing: 'Marketing',
+  media: 'Media',
+  medicine: 'Medicine',
+  mental_health: 'Mental Health',
+  music: 'Music',
+  nature: 'Nature',
+  news: 'News',
+  outdoor_activities: 'Outdoor Activities',
+  philosophy: 'Philosophy',
+  podcast: 'Podcast',
+  politics: 'Politics',
+  producer: 'Producer',
+  public_figure: 'Public Figure',
+  photography: 'Photography',
+  reading: 'Reading',
+  retail: 'Retail',
+  sports: 'Sports',
+  technology: 'Technology',
+  travel: 'Travel',
+  vegetarian: 'Vegetarian',
+  video_production: 'Video Production',
+  vintage: 'Vintage',
+  volunteer_and_non_profit: 'Volunteer and Non-Profit',
+  wine: 'Wine',
+  writing: 'Writing',
+  yoga: 'Yoga',
+};
+
+export const _badgeImages: Record<BadgeOptions, ImageSourcePropType> = {
+  art: require('../assets/badges/art.png'),
+  astronomy: require('../assets/badges/astronomy.png'),
+  athlete: require('../assets/badges/athlete.png'),
+  author: require('../assets/badges/author.png'),
+  beauty: require('../assets/badges/beauty.png'),
+  blogger: require('../assets/badges/blogger.png'),
+  cars: require('../assets/badges/cars.png'),
+  chess: require('../assets/badges/chess.png'),
+  coffee: require('../assets/badges/coffee.png'),
+  college: require('../assets/badges/college.png'),
+  cooking: require('../assets/badges/cooking.png'),
+  dance: require('../assets/badges/dance.png'),
+  diy: require('../assets/badges/diy.png'),
+  dj: require('../assets/badges/dj.png'),
+  design: require('../assets/badges/design.png'),
+  engineering: require('../assets/badges/engineering.png'),
+  entertainment: require('../assets/badges/entertainment.png'),
+  entrepreneur: require('../assets/badges/entrepreneur.png'),
+  fashion: require('../assets/badges/fashion.png'),
+  film: require('../assets/badges/film.png'),
+  finance: require('../assets/badges/finance.png'),
+  fishing: require('../assets/badges/fishing.png'),
+  fitness: require('../assets/badges/fitness.png'),
+  food: require('../assets/badges/food.png'),
+  foreign_language: require('../assets/badges/foreign_language.png'),
+  gaming: require('../assets/badges/gaming.png'),
+  gardening: require('../assets/badges/gardening.png'),
+  health: require('../assets/badges/health.png'),
+  investing: require('../assets/badges/investing.png'),
+  jewelry: require('../assets/badges/jewelry.png'),
+  journalism: require('../assets/badges/journalism.png'),
+  legal: require('../assets/badges/legal.png'),
+  marketing: require('../assets/badges/marketing.png'),
+  media: require('../assets/badges/media.png'),
+  medicine: require('../assets/badges/medicine.png'),
+  mental_health: require('../assets/badges/mental_health.png'),
+  music: require('../assets/badges/music.png'),
+  nature: require('../assets/badges/nature.png'),
+  news: require('../assets/badges/news.png'),
+  outdoor_activities: require('../assets/badges/outdoor_activities.png'),
+  photography: require('../assets/badges/photography.png'),
+  philosophy: require('../assets/badges/philosophy.png'),
+  podcast: require('../assets/badges/podcast.png'),
+  politics: require('../assets/badges/politics.png'),
+  producer: require('../assets/badges/producer.png'),
+  public_figure: require('../assets/badges/public_figure.png'),
+  reading: require('../assets/badges/reading.png'),
+  retail: require('../assets/badges/retail.png'),
+  sports: require('../assets/badges/sports.png'),
+  technology: require('../assets/badges/technology.png'),
+  travel: require('../assets/badges/travel.png'),
+  vegetarian: require('../assets/badges/vegetarian.png'),
+  video_production: require('../assets/badges/video_production.png'),
+  vintage: require('../assets/badges/vintage.png'),
+  volunteer_and_non_profit: require('../assets/badges/volunteer_and_non_profit.png'),
+  wine: require('../assets/badges/wine.png'),
+  writing: require('../assets/badges/writing.png'),
+  yoga: require('../assets/badges/yoga.png'),
+};
+
+export const BADGE_DATA: BadgeDataType[] = [
+  {
+    name: 'art',
+    image: _badgeImages.art,
+  },
+  {
+    name: 'astronomy',
+    image: _badgeImages.astronomy,
+  },
+  {
+    name: 'athlete',
+    image: _badgeImages.athlete,
+  },
+  {
+    name: 'author',
+    image: _badgeImages.author,
+  },
+  {
+    name: 'beauty',
+    image: _badgeImages.beauty,
+  },
+  {
+    name: 'blogger',
+    image: _badgeImages.blogger,
+  },
+  {
+    name: 'cars',
+    image: _badgeImages.cars,
+  },
+  {
+    name: 'chess',
+    image: _badgeImages.chess,
+  },
+  {
+    name: 'coffee',
+    image: _badgeImages.coffee,
+  },
+  {
+    name: 'college',
+    image: _badgeImages.college,
+  },
+  {
+    name: 'cooking',
+    image: _badgeImages.cooking,
+  },
+  {
+    name: 'dance',
+    image: _badgeImages.dance,
+  },
+  {
+    name: 'design',
+    image: _badgeImages.design,
+  },
+  {
+    name: 'diy',
+    image: _badgeImages.diy,
+  },
+  {
+    name: 'dj',
+    image: _badgeImages.dj,
+  },
+  {
+    name: 'engineering',
+    image: _badgeImages.engineering,
+  },
+  {
+    name: 'entertainment',
+    image: _badgeImages.entertainment,
+  },
+  {
+    name: 'entrepreneur',
+    image: _badgeImages.entrepreneur,
+  },
+  {
+    name: 'fashion',
+    image: _badgeImages.fashion,
+  },
+  {
+    name: 'film',
+    image: _badgeImages.film,
+  },
+  {
+    name: 'finance',
+    image: _badgeImages.finance,
+  },
+  {
+    name: 'fishing',
+    image: _badgeImages.fishing,
+  },
+  {
+    name: 'fitness',
+    image: _badgeImages.fitness,
+  },
+  {
+    name: 'food',
+    image: _badgeImages.food,
+  },
+  {
+    name: 'foreign_language',
+    image: _badgeImages.foreign_language,
+  },
+  {
+    name: 'gaming',
+    image: _badgeImages.gaming,
+  },
+  {
+    name: 'gardening',
+    image: _badgeImages.gardening,
+  },
+  {
+    name: 'health',
+    image: _badgeImages.health,
+  },
+  {
+    name: 'investing',
+    image: _badgeImages.investing,
+  },
+  {
+    name: 'jewelry',
+    image: _badgeImages.jewelry,
+  },
+  {
+    name: 'journalism',
+    image: _badgeImages.journalism,
+  },
+  {
+    name: 'legal',
+    image: _badgeImages.legal,
+  },
+  {
+    name: 'marketing',
+    image: _badgeImages.marketing,
+  },
+  {
+    name: 'media',
+    image: _badgeImages.media,
+  },
+  {
+    name: 'medicine',
+    image: _badgeImages.medicine,
+  },
+  {
+    name: 'mental_health',
+    image: _badgeImages.mental_health,
+  },
+  {
+    name: 'music',
+    image: _badgeImages.music,
+  },
+  {
+    name: 'nature',
+    image: _badgeImages.nature,
+  },
+  {
+    name: 'news',
+    image: _badgeImages.news,
+  },
+  {
+    name: 'outdoor_activities',
+    image: _badgeImages.outdoor_activities,
+  },
+  {
+    name: 'philosophy',
+    image: _badgeImages.philosophy,
+  },
+  {
+    name: 'photography',
+    image: _badgeImages.photography,
+  },
+  {
+    name: 'podcast',
+    image: _badgeImages.podcast,
+  },
+  {
+    name: 'politics',
+    image: _badgeImages.politics,
+  },
+  {
+    name: 'producer',
+    image: _badgeImages.producer,
+  },
+  {
+    name: 'public_figure',
+    image: _badgeImages.public_figure,
+  },
+  {
+    name: 'reading',
+    image: _badgeImages.reading,
+  },
+  {
+    name: 'retail',
+    image: _badgeImages.retail,
+  },
+  {
+    name: 'sports',
+    image: _badgeImages.sports,
+  },
+  {
+    name: 'technology',
+    image: _badgeImages.technology,
+  },
+  {
+    name: 'travel',
+    image: _badgeImages.travel,
+  },
+  {
+    name: 'vegetarian',
+    image: _badgeImages.vegetarian,
+  },
+  {
+    name: 'video_production',
+    image: _badgeImages.video_production,
+  },
+  {
+    name: 'vintage',
+    image: _badgeImages.vintage,
+  },
+  {
+    name: 'volunteer_and_non_profit',
+    image: _badgeImages.volunteer_and_non_profit,
+  },
+  {
+    name: 'wine',
+    image: _badgeImages.wine,
+  },
+  {
+    name: 'writing',
+    image: _badgeImages.writing,
+  },
+  {
+    name: 'yoga',
+    image: _badgeImages.yoga,
+  },
+];

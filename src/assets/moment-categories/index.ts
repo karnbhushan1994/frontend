@@ -1,0 +1,18 @@
+export const moment = {
+  adventure: require('./adventure-icon.png'),
+  art: require('./art-icon.png'),
+  beauty: require('./beauty-icon.png'),
+  custom: require('./custom-icon.png'),
+  diy: require('./diy-icon.png'),
+  earlyLife: require('./early-life-icon.png'),
+  fashion: require('./fashion-icon.png'),
+  fitness: require('./fitness-icon.png'),
+  food: require('./food-icon.png'),
+  friends: require('./friends-icon.png'),
+  music: require('./music-icon.png'),
+  nature: require('./nature-icon.png'),
+  pets: require('./pets-icon.png'),
+  photoDump: require('./photo-dump-icon.png'),
+  sports: require('./sports-icon.png'),
+  travel: require('./travel-icon.png'),
+};

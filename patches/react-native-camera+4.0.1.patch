@@ -1,0 +1,14 @@
+diff --git a/node_modules/react-native-camera/ios/RN/RNCamera.m b/node_modules/react-native-camera/ios/RN/RNCamera.m
+index 9470078..7ff0c0b 100644
+--- a/node_modules/react-native-camera/ios/RN/RNCamera.m
++++ b/node_modules/react-native-camera/ios/RN/RNCamera.m
+@@ -1953,8 +1953,8 @@ BOOL _sessionInterrupted = NO;
+             if ([connections[0] isVideoMirrored]) {
+                 [self mirrorVideo:outputFileURL completion:^(NSURL *mirroredURL) {
+                     result[@"uri"] = mirroredURL.absoluteString;
+-                    resolveBlock();
+                 }];
++                resolveBlock();
+                 return;
+             }
+         }

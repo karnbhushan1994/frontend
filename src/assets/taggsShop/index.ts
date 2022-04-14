@@ -1,0 +1,16 @@
+export const taggsShop = {
+  challengeDetail1: require('./challengeDetail1.png'),
+  challengeDetail2: require('./challengeDetail2.png'),
+  challengeDetail3: require('./challengeDetail3.png'),
+  challengeDetail4: require('./challengeDetail4.png'),
+  chessBg: require('./chessBg.png'),
+  explore1: require('./explore1.png'),
+  explore2: require('./explore2.png'),
+  explore3: require('./explore3.png'),
+  modalIcon: require('./modalIcon.png'),
+  taggItem1: require('./taggItem1.png'),
+  taggItem2: require('./taggItem2.png'),
+  taggItem3: require('./taggItem3.png'),
+  taggItem4: require('./taggItem4.png'),
+  popupBG: require('./popup.png'),
+};

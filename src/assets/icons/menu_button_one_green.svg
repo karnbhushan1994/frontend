@@ -1,0 +1,11 @@
+<svg width="73" height="73" viewBox="0 0 73 73" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d)">
+</g>
+<rect x="24" y="24" width="11.5385" height="10.8974" rx="1" fill="#6EE7E7"/>
+<rect x="37.4609" y="24" width="11.5385" height="3.84615" rx="1" fill="#6EE7E7"/>
+<rect x="37.4609" y="29.4487" width="11.5385" height="3.84615" rx="1" fill="#6EE7E7"/>
+<path d="M24 39.1025C24 38.5503 24.4477 38.1025 25 38.1025H48C48.5523 38.1025 49 38.5503 49 39.1025V47.7271C49 48.3752 48.393 48.8521 47.7633 48.6987L24.7633 43.0962C24.3153 42.987 24 42.5857 24 42.1246V39.1025Z" fill="#6EE7E7"/>
+<!--<defs>-->
+<filter id="filter0_d" x="0" y="0" width="73" height="73" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+</filter>
+</svg>

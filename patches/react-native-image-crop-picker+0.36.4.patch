@@ -1,0 +1,25 @@
+diff --git a/node_modules/react-native-image-crop-picker/.DS_Store b/node_modules/react-native-image-crop-picker/.DS_Store
+new file mode 100644
+index 0000000..e69de29
+diff --git a/node_modules/react-native-image-crop-picker/ios/src/ImageCropPicker.m b/node_modules/react-native-image-crop-picker/ios/src/ImageCropPicker.m
+index cb64b7d..2b4a9fb 100644
+--- a/node_modules/react-native-image-crop-picker/ios/src/ImageCropPicker.m
++++ b/node_modules/react-native-image-crop-picker/ios/src/ImageCropPicker.m
+@@ -463,7 +463,7 @@ - (void) handleVideo:(AVAsset*)asset withFileName:(NSString*)fileName withLocalI
+ - (void) getVideoAsset:(PHAsset*)forAsset completion:(void (^)(NSDictionary* image))completion {
+     PHImageManager *manager = [PHImageManager defaultManager];
+     PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
+-    options.version = PHVideoRequestOptionsVersionOriginal;
++    options.version = PHVideoRequestOptionsVersionCurrent;
+     options.networkAccessAllowed = YES;
+     options.deliveryMode = PHVideoRequestOptionsDeliveryModeHighQualityFormat;
+     
+@@ -890,7 +890,7 @@ - (void)cropImage:(UIImage *)image {
+         cropVC.doneButtonTitle = [self.options objectForKey:@"cropperChooseText"];
+         cropVC.cancelButtonTitle = [self.options objectForKey:@"cropperCancelText"];
+         
+-        cropVC.modalPresentationStyle = UIModalPresentationFullScreen;
++        cropVC.modalPresentationStyle = UIModalPresentationPopover;
+         
+         [[self getRootVC] presentViewController:cropVC animated:FALSE completion:nil];
+     });
